@@ -4,6 +4,7 @@ from typing import Optional, List
 
 
 class Event(Document):
+    creator: Optional[str]
     title: str
     image: str
     description: str
@@ -13,6 +14,7 @@ class Event(Document):
     class Config:
         schema_extra = {
             "example": {
+                "creator": "reader@packt.com",
                 "title": "FastAPI Book Launch",
                 "image": "https://linktomyimage.com/image.png",
                 "description": "we will be discussing the contents of the FastAPI book in this event. Ensure to come with your own copy to win gifts!",
@@ -23,6 +25,7 @@ class Event(Document):
 
     class Settings:
         name = "events"
+
 
 class EventUpdate(BaseModel):
     title: Optional[str]
